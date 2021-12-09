@@ -1,0 +1,595 @@
+/*=========================
+        Global Styles
+ ========================*/
+body {
+  overflow-x: hidden;
+  background-color: #000;
+  font-family: "Roboto", sans-serif;
+}
+
+section.page {
+  width: 100%;
+  display: none;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+section.page .head {
+  display: block;
+  width: 100%;
+  height: 0px;
+}
+section.page .head img#eve-logo {
+  width: 100px;
+  float: left;
+}
+section.page .head img#merck-logo {
+  width: 170px;
+  float: right;
+}
+
+a {
+  transition: all 400ms ease;
+}
+
+section#start-page {
+  display: none;
+  background-image: url("../images/bg-1.jpg");
+}
+section#start-page button#start-game {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  bottom: 120px;
+  left: 120px;
+  cursor: pointer;
+  max-width: 300px;
+  width: 20vw;
+}
+section#start-page button#start-game img {
+  width: 100%;
+  transition: all 400ms ease;
+}
+section#start-page button#start-game img:hover {
+  opacity: 0.9;
+}
+section#start-page div.imgs-container img {
+  position: absolute;
+}
+section#start-page div.imgs-container img#femal-only-padge {
+  top: 150px;
+  right: 90px;
+  max-width: 150px;
+  width: 20vw;
+}
+section#start-page div.imgs-container img#better-health {
+  top: 50%;
+  transform: translate(0%, -50%);
+  right: 90px;
+  max-width: 350px;
+  width: 20vw;
+}
+section#start-page div.imgs-container img#item-photo-1 {
+  bottom: 160px;
+  right: 180px;
+  max-width: 220px;
+  width: 10vw;
+}
+section#start-page div.imgs-container img#gardener-photo {
+  bottom: 0;
+  right: 10%;
+  max-width: 38vmax;
+  width: 38vmax;
+}
+section#start-page div.imgs-container img#game-name-photo {
+  bottom: 5%;
+  left: 10%;
+  width: 31vmax;
+}
+section#start-page div.imgs-container img#eve-quest-photo {
+  top: 200px;
+  left: 150px;
+  max-width: 400px;
+  width: 20vw;
+}
+
+section#game-page {
+  background-image: url("../images/bg-2.jpg");
+}
+
+div.game-info {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  column-gap: 2vw;
+}
+div.game-info p.time,
+div.game-info p.score {
+  display: inline-block;
+  margin: 10px;
+  width: 160px;
+  height: 50px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffcc;
+  padding-right: 36px;
+  padding-top: 8px;
+  box-sizing: border-box;
+  font-size: 28px;
+}
+div.game-info p.time {
+  background-image: url("../images/time-bar.png");
+  float: right;
+}
+div.game-info p.score {
+  background-image: url("../images/score-bar.png");
+  float: left;
+}
+
+section#game-page .game-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  flex-grow: 1;
+  min-height: 100vh;
+}
+section#game-page div#cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(47vw - 100px);
+  margin: 0 auto;
+  align-content: center;
+  flex-grow: 1;
+}
+section#game-page div#cards-container .flip-card {
+  background-color: transparent;
+  width: 20%;
+  aspect-ratio: 0.8;
+  perspective: 1000px;
+  padding: calc(0.4vw + 1px);
+  box-sizing: border-box;
+  cursor: pointer;
+  animation: bounce;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
+  /* don't forget to set a duration! */
+}
+section#game-page div#cards-container .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+section#game-page div#cards-container .flip-card-front,
+section#game-page div#cards-container .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+section#game-page div#cards-container .flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(5, 1, 11, 0.8);
+  width: 100%;
+}
+
+.center-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#match-popup img:not(.cloud),
+#time-out img:not(.cloud),
+#game-ended img:not(.cloud) {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#match-popup img.w-40,
+#time-out img.w-40,
+#game-ended img.w-40 {
+  width: 40%;
+}
+#match-popup img#coins,
+#time-out img#coins,
+#game-ended img#coins {
+  width: 80%;
+  top: 30%;
+}
+#match-popup a.leader-board,
+#time-out a.leader-board,
+#game-ended a.leader-board {
+  width: 12%;
+  height: 20%;
+  position: fixed;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#match-popup a.leader-board:hover,
+#time-out a.leader-board:hover,
+#game-ended a.leader-board:hover {
+  animation: animate__flip;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
+  /* don't forget to set a duration! */
+}
+#match-popup a.leader-board img,
+#time-out a.leader-board img,
+#game-ended a.leader-board img {
+  width: 100%;
+  height: 100%;
+  transition: all 400ms ease;
+}
+
+img.match-popup-img {
+  bottom: 0 !important;
+  top: unset !important;
+  transform: translateX(-50%) !important;
+}
+
+.checked {
+  color: green;
+}
+
+.matched-card {
+  pointer-events: none !important;
+}
+.matched-card img {
+  opacity: 0.7;
+}
+
+#question-popup {
+  color: #360458;
+}
+#question-popup div.container {
+  background-color: #fff;
+  background-image: url("../images/panel-1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 2vw 4.2vw 4vw;
+  box-sizing: border-box;
+  width: 45%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+#question-popup div.container h3 {
+  font-size: 2.5vw;
+  font-weight: 600;
+  width: 100%;
+  margin: 30px 0;
+}
+#question-popup div.container .question-option {
+  display: inline-block;
+  width: 49%;
+  margin-bottom: 10px;
+}
+#question-popup div.container .question-option input {
+  display: none;
+}
+#question-popup div.container .question-option label {
+  font-size: 1.5vw;
+  font-weight: 600;
+  cursor: pointer;
+}
+#question-popup div.container .btn-container {
+  position: absolute;
+  display: block;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 90px);
+}
+#question-popup div.container .btn-container button#submit-answer {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  left: 0;
+  max-width: 120px;
+  width: 12vw;
+}
+#question-popup div.container .btn-container button#submit-answer img {
+  width: 100%;
+  height: 100%;
+  transition: all 400ms ease;
+}
+
+section#leader-board-page {
+  background-image: url("../images/bg-3.jpg");
+  color: #fff;
+  overflow: hidden;
+}
+section#leader-board-page div.head {
+  z-index: 666;
+  position: relative;
+}
+section#leader-board-page div.leader-board-panel {
+  z-index: 666;
+  position: relative;
+  background-image: url("../images/panel-2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  top: 15%;
+  display: inline-block;
+  padding: 0 3%;
+}
+section#leader-board-page div.leader-board-panel img.leader-board-panel-logo {
+  max-width: 240px;
+  width: 8vw;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: -10vh;
+}
+section#leader-board-page div.leader-board-panel ul {
+  position: relative;
+  top: -100px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+section#leader-board-page div.leader-board-panel ul li {
+  font-size: 2.5vw;
+  margin-bottom: 0.2vh;
+}
+section#leader-board-page div.leader-board-panel ul li:last-child {
+  margin-bottom: -50px;
+}
+section#leader-board-page div.leader-board-panel ul li img {
+  object-fit: contain;
+  height: 80px;
+  max-width: 80px;
+  width: 3vw;
+  margin: 0 40px 0 0;
+  position: relative;
+  top: 20px;
+}
+section#leader-board-page div.imgs-container img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+}
+section#leader-board-page div.imgs-container img#gardener-photo {
+  top: 4%;
+  right: 1%;
+  max-width: 20%;
+}
+section#leader-board-page div.imgs-container img#item-2-photo {
+  top: -11%;
+  right: -20%;
+  width: 103%;
+}
+section#leader-board-page div.imgs-container img#femal-only-padge {
+  top: 40px;
+  left: 50%;
+  z-index: 10;
+  max-width: 166px;
+  width: 9vw;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 5555;
+  transform: translate(-33.33%, -33.33%);
+}
+.cloud.cloud-right {
+  top: 23.33%;
+  left: 23.33%;
+  --animate-duration: 8s;
+}
+.cloud.cloud-left {
+  top: 66.66%;
+  left: 56.66%;
+  --animate-duration: 7s;
+}
+
+.play-again {
+  position: absolute !important;
+  top: 92% !important;
+  width: 80px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* ----------- 1366 x 768 ------------ */
+@media screen and (max-width: 1366px) {
+  section#start-page button#start-game {
+    max-width: 200px;
+    width: 20vw;
+    left: 50px;
+    bottom: 50px;
+  }
+  section#start-page div.imgs-container img#femal-only-padge {
+    top: 100px;
+    right: 90px;
+    max-width: 120px;
+    width: 12vw;
+  }
+  section#start-page div.imgs-container img#better-health {
+    top: 50%;
+    transform: translate(0%, -50%);
+    right: 90px;
+    max-width: 350px;
+    width: 20vw;
+  }
+  section#start-page div.imgs-container img#item-photo-1 {
+    bottom: 80px;
+    right: 80px;
+    max-width: 220px;
+    width: 10vw;
+  }
+  section#start-page div.imgs-container img#eve-quest-photo {
+    top: 200px;
+    left: 50px;
+    max-width: 400px;
+    width: 20vw;
+  }
+}
+@media screen and (max-width: 1366px) {
+  section.page .head img#eve-logo {
+    width: 70px;
+  }
+  section.page .head img#merck-logo {
+    width: 100px;
+  }
+
+  div.game-info p.time,
+div.game-info p.score {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  #question-popup div.container {
+    width: 45%;
+  }
+  #question-popup div.container .btn-container {
+    transform: translate(-50%, 65px);
+  }
+  #question-popup div.container .question-option label {
+    font-size: 1.8vw;
+  }
+
+  section#leader-board-page div.leader-board-panel {
+    padding: 0 3%;
+  }
+  section#leader-board-page div.leader-board-panel ul {
+    top: -80px;
+  }
+  section#leader-board-page div.leader-board-panel ul li {
+    font-size: 2.2vw;
+    margin-bottom: 0;
+  }
+  section#leader-board-page div.leader-board-panel ul li:last-child {
+    margin-bottom: -50px;
+  }
+  section#leader-board-page div.leader-board-panel ul li img {
+    margin: 0 20px 0 0;
+    height: 70px;
+    max-width: 80px;
+    width: 3vw;
+    top: 28px;
+  }
+}
+/* ----------- 768  ------------ */
+@media screen and (max-width: 768px) {
+  section#start-page div.imgs-container img#gardener-photo {
+    transform: translate(30%, -50%);
+    max-width: 660px;
+    width: 50vw;
+  }
+  section#start-page div.imgs-container img#eve-quest-photo {
+    top: 150px;
+    left: 50px;
+    max-width: 400px;
+    width: 12vw;
+  }
+
+  #question-popup div.container .btn-container {
+    transform: translate(-50%, 65px);
+  }
+}
+@media screen and (max-width: 768px) {
+  section#game-page div#cards-container {
+    width: calc(60vw - 100px);
+  }
+
+  #question-popup div.container {
+    width: 55%;
+  }
+  #question-popup div.container .btn-container {
+    transform: translate(-50%, 65px);
+  }
+  #question-popup div.container .question-option label {
+    font-size: 2.6vw;
+  }
+  #question-popup div.container h3 {
+    font-size: 3.3vw;
+  }
+
+  section#leader-board-page div.leader-board-panel {
+    padding: 0 3%;
+  }
+  section#leader-board-page div.leader-board-panel ul {
+    top: -70px;
+  }
+  section#leader-board-page div.leader-board-panel ul li {
+    font-size: 2.2vw;
+    margin-bottom: 0;
+  }
+  section#leader-board-page div.leader-board-panel ul li:last-child {
+    margin-bottom: -50px;
+  }
+  section#leader-board-page div.leader-board-panel ul li img {
+    height: 50px;
+    max-width: 80px;
+    width: 3vw;
+    top: 20px;
+  }
+}
+/* ----------- 640 ------------ */
+@media screen and (max-width: 640px) {
+  #question-popup div.container {
+    width: 80%;
+  }
+  #question-popup div.container .btn-container {
+    transform: translate(-50%, 45px);
+  }
+}
+/* ----------- Force landscape ------------ */
+#warning-message {
+  display: none;
+}
+
+@media only screen and (orientation: portrait) {
+  #warning-message {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.86);
+  }
+  #warning-message p {
+    color: #fff;
+  }
+}
+@media only screen and (orientation: landscape) {
+  #warning-message {
+    display: none;
+  }
+}
+.page,
+.popup,
+.center-screen {
+  min-height: 100vh;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Garden flip card game</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="game-wrapper">
+      <section class="page" id="start-page">
+        <div class="imgs-container">
+          <img
+            src="assets/images/gardener.svg"
+            alt=""
+            id="gardener-photo"
+            style="
+              animation: bounceInRight both 1s 0.5s;
+              -webkit-animation: bounceInRight both 1s 0.5s;
+            "
+          />
+          <img
+            src="assets/images/wood.png"
+            alt=""
+            id="game-name-photo"
+            style="
+              animation: bounceInLeft both 1s 0.5s;
+              -webkit-animation: bounceInLeft both 1s 0.5s;
+            "
+          />
+        </div>
+
+        <button id="start-game">
+          <img
+            src="assets/images/start-btn.png"
+            style="
+              animation: pulse both 1s 0.5s infinite;
+              -webkit-animation: pulse both 1s 0.5s infinite;
+            "
+            alt=""
+          />
+        </button>
+      </section>
+
+      <section class="page" id="game-page">
+        <div class="game-wrapper">
+          <div class="game-info">
+            <p class="score"><span id="player-score">0</span></p>
+            <p class="time"><span id="player-time">00:00</span></p>
+          </div>
+  
+          <div id="cards-container">
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-1">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/1.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-2">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/1.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-3">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/2.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-4">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/2.jpg" />
+              </div>
+            </div>
+  
+             <div class="flip-card">
+              <div class="flip-card-inner card" id="card-5">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/3.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-6">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/3.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-7">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/4.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-8">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/4.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-9">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/5.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-10">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/5.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-11">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/6.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-12">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/6.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-13">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/7.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-14">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/7.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-15">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/8.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-16">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/8.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-17">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/9.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-18">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img class="card-face flip-card-back" src="assets/images/9.jpg" />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-19">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img
+                  class="card-face flip-card-back"
+                  src="assets/images/10.jpg"
+                />
+              </div>
+            </div>
+  
+            <div class="flip-card">
+              <div class="flip-card-inner card" id="card-20">
+                <img
+                  class="card-face flip-card-front"
+                  src="assets/images/0.jpg"
+                />
+                <img
+                  class="card-face flip-card-back"
+                  src="assets/images/10.jpg"
+                />
+              </div>
+            </div> 
+          </div>
+        </div>
+      </section>
+
+      <section class="popup" id="match-popup">
+        <img
+          class="center-screen w-40 match-popup-img"
+          src="assets/images/matched.svg"
+          alt=""
+        />
+        <img
+          id="coins"
+          class="center-screen"
+          src="assets/images/coins.png"
+          alt=""
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-left
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-right
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+      </section>
+
+      <section class="popup" id="time-out">
+        <img
+          class="center-screen w-40"
+          src="assets/images/time-out.svg"
+          alt=""
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-left
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-right
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+        <img src="assets/images/play-again.png" alt="" class="play-again">
+      </section>
+
+      <section class="popup" id="game-ended">
+        
+        <img
+          class="center-screen w-40"
+          src="assets/images/you-won.svg"
+          alt=""
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-left
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-right
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+sdada
+        <img src="assets/images/play-again.png" alt="" class="play-again">
+
+      </section>
+<!-- 
+      <section class="popup" id="score-popup">
+        <div class="box center-screen">
+          <h3 class="score">
+            Your total time : <span id="total-player-time">0</span> seconds
+          </h3>
+          <h3 class="time">
+            Your total score : <span id="total-player-score">0</span>
+          </h3>
+
+          <div class="btns">
+            <a href="#" onclick=" event.preventDefault();" id="play-again-btn"
+              >New game</a
+            >
+          </div>
+        </div>
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-left
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+        <img
+          src="assets/images/cloud.png"
+          alt=""
+          class="
+            cloud cloud-right
+            animate__animated animate__shakeX animate__slow animate__infinite
+            infinite
+          "
+        />
+      </section> -->
+
+      <section class="popup" id="question-popup">
+        <div class="container center-screen">
+          <h3 id="question">Question body</h3>
+
+          <form action="#" onsubmit=" event.preventDefault();">
+            <div class="question-option">
+              <input type="radio" name="question" id="option-1" />
+              <label for="option-1">Answer 1</label>
+            </div>
+
+            <div class="question-option">
+              <input type="radio" name="question" id="option-2" />
+              <label for="option-2">Answer 2</label>
+            </div>
+
+            <div class="question-option">
+              <input type="radio" name="question" id="option-3" />
+              <label for="option-3">Answer 3</label>
+            </div>
+
+            <div class="question-option">
+              <input type="radio" name="question" id="option-4" />
+              <label for="option-4">Answer 4</label>
+            </div>
+
+            <div class="btn-container">
+            
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <div id="warning-message">
+      <p>Please use landscape mode</p>
+    </div>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/game-core.js"></script>
+    <script src="assets/js/main-scripts.js"></script>
+    <script src="assets/js/animations.js"></script>
+  </body>
+</html>
